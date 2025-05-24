@@ -1,3 +1,5 @@
+
+
 #This will be the main code/ an initiator for the code we will write
 Names = []
 Section = []
@@ -5,11 +7,11 @@ SAS  = []
 Scores = []
 a = ''
 b = ''
- n = str(input("Please enter a student's name: "))
-    sec = str(input("Please the student's section: "))
-    grd= int(input("Enter a student's grade: ") )
-    Names.append(n)
-    Section.append(sec)
+N= str(input("Please enter a student's name: "))
+sec = str(input("Please the student's section: "))
+grd= int(input("Enter a student's grade: ") )
+Names.append(N)
+Section.append(sec)
 def score_to_grade(grd):
   if 85<grd:
      return("A")
@@ -33,7 +35,7 @@ def score_to_grade(grd):
      return("F")
 
 STG=score_to_grade(grd)
-  Scores.append(STG)
+Scores.append(STG)
 while True:
    
     for score, sect in zip(Scores, Section):
