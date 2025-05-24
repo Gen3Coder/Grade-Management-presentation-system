@@ -6,18 +6,28 @@ Scores = []
 a = ''
 b = ''
 def score_to_grade(grd):
-  if grd>=85:
-     return("Grade: A")
-  elif 85>grd>=70 :
-     return("Grade: B")
-  elif 70>grd>=50:
-     return("Grade: C")
-  elif 50>grd>=40:
-      return("Grade: D")
+  if 85<grd:
+     return("A")
+  elif 85>grd>=80:
+     return("A-")
+  elif 80>grd>=75 :
+     return("B+")
+  elif 75>grd>=68 :
+     return("B")
+  elif 68>grd>=65 :
+     return("B-")
+  elif 65>grd>=60:
+     return("C+")
+  elif 60>grd>=50:
+     return("C")
+  elif 50>grd>=45:
+     return("C-")
+  elif 45>grd>=40:
+      return("D")
   elif grd<40:
-     return("Grade: F")
+     return("F")
 
-  
+Score=list(score_to_grade(grd))
 while True:
     n = str(input("Please enter a student's name: "))
     sec = str(input("Please the student's section: "))
