@@ -2,7 +2,7 @@
 Scores = []
 def score_to_grade(grd):
   if grd>=85:
-     print("Grade: A")
+     return("Grade: A")
   elif 85>grd>=70 :
      return("Grade: B")
   elif 70>grd>=50:
