@@ -8,7 +8,6 @@ b = ''
  n = str(input("Please enter a student's name: "))
     sec = str(input("Please the student's section: "))
     grd= int(input("Enter a student's grade: ") )
-    STG =  score_to_grade(s)
     Names.append(n)
     Section.append(sec)
 def score_to_grade(grd):
