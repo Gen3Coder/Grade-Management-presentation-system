@@ -5,6 +5,12 @@ SAS  = []
 Scores = []
 a = ''
 b = ''
+ n = str(input("Please enter a student's name: "))
+    sec = str(input("Please the student's section: "))
+    grd= int(input("Enter a student's grade: ") )
+    STG =  score_to_grade(s)
+    Names.append(n)
+    Section.append(sec)
 def score_to_grade(grd):
   if 85<grd:
      return("A")
@@ -27,15 +33,10 @@ def score_to_grade(grd):
   elif grd<40:
      return("F")
 
-Score=list(score_to_grade(grd))
+STG=score_to_grade(grd)
+  Scores.append(STG)
 while True:
-    n = str(input("Please enter a student's name: "))
-    sec = str(input("Please the student's section: "))
-    s= int(input("Enter a student's grade: ") )
-    STG =  score_to_grade(s)
-    Names.append(n)
-    Section.append(sec)
-    Scores.append(STG)
+   
     for score, sect in zip(Scores, Section):
        pair = f"{score}:{sect}"
        if pair not in SAS:
