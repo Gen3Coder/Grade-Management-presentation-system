@@ -1,8 +1,10 @@
 #This will be the main code/ an initiator for the code we will write
-Names = []
-Section = []
-SAS  = []
-Scores = []
+names = {}
+name = {}
+Section = {}
+SAS  = {}
+Scores = {}
+count = -1
 a = ''
 b = ''
 def score_to_grade(grd):
@@ -29,17 +31,15 @@ def score_to_grade(grd):
 
   
 while True:
+    count += 1
     n = str(input("Please enter a student's name: "))
     sec = str(input("Please the student's section: "))
     s= int(input("Enter a student's grade: ") )
     STG =  score_to_grade(s)
-    Names.append(n)
-    Section.append(sec)
-    Scores.append(STG)
-    for score, sect in zip(Scores, Section):
-       pair = f"{score}:{sect}"
-       if pair not in SAS:
-        SAS.append(pair)
+    names[count] = [n ,s, sec]
+    if count not in name:
+       name[count] = []
+    name[count].append(names[count])
     choice = input('Would you like to sumbit the grade of another student?(Y/N) ')
     if choice.lower() == 'y':
        pass
@@ -48,7 +48,7 @@ while True:
     else:
        break    
 
-print(SAS)
+print(name)
 #Here we will have the code to compare the grades of sections
 cs = input("Please input the section's you want to compare.(Eg:- 2,3): ")
 a, b = cs.split(',')
