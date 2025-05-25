@@ -5,7 +5,10 @@ This Python program recieves student information from teachers and performs oper
                        -Calculate the average grade of a section.
                        -Compare average performance of 2 sections.
                        -Present the section comparision using Bar charts via Turtle library.
-To run this program click on the download raw button
+
+To run this program click on the download raw button located on the top right corner of the window after downloading it open the program on your IDE and click the run button on your IDE or f5
+
+
 
 Group members 
 1.Biruk Ayalew------UGR/0502/17(Gen3Coder)
