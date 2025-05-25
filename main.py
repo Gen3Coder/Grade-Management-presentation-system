@@ -36,7 +36,12 @@ while True:
     sec = str(input("Please the student's section: "))
     s= int(input("Enter a student's grade: ") )
     STG =  score_to_grade(s)
-    names[count] = [n ,s, sec]
+    names[count] = {
+      "Name":n,
+      "Score":s,
+      "Section":sec,
+      "Grade":STG
+    }
     if count not in name:
        name[count] = []
     name[count].append(names[count])
@@ -50,12 +55,12 @@ while True:
 
 print(name)
 #Here we will have the code to compare the grades of sections
-cs = input("Please input the section's you want to compare.(Eg:- 2,3): ")
-a, b = cs.split(',')
+
+
 #Comparing two Sections
-def compare_sections(students, section1, section2):
-    scores1 = [s["Score"] for s in students.values() if s["Section"] == section1]
-    scores2 = [s["Score"] for s in students.values() if s["Section"] == section2]
+def compare_sections(names, section1, section2):
+    scores1 = [s["Score"] for s in names.values() if s["Section"] == section1]
+    scores2 = [s["Score"] for s in names.values() if s["Section"] == section2]
 
     if not scores1 or not scores2:
         print("One or both sections have no data.")
@@ -74,5 +79,8 @@ def compare_sections(students, section1, section2):
         print("Both sections performed equally.")
 
     return avg1, avg2
+cs = input("Please input the section's you want to compare.(Eg:- 2,3): ")
+a, b = cs.split(',')
+compare_sections(names,a.strip(),b.strip())
 
    
