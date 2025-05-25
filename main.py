@@ -52,16 +52,6 @@ print(name)
 #Here we will have the code to compare the grades of sections
 cs = input("Please input the section's you want to compare.(Eg:- 2,3): ")
 a, b = cs.split(',')
-def compare_section(sec1, sec2):
-   if sec1 == sec2:
-      return('{}')
-   elif sec1 >= sec2:
-      #another thing also happens here
-      pass
-   elif sec1 <= sec2:
-      #You would never guess
-      #Something else would also happen
-      pass
 #Comparing two Sections
 def compare_sections(students, section1, section2):
     scores1 = [s["Score"] for s in students.values() if s["Section"] == section1]
