@@ -12,8 +12,8 @@ To run this program click on the download raw button located on the top right co
 
 Group members 
 1.Biruk Ayalew------UGR/0502/17(Gen3Coder)
-2.Biruk Worede-------UGR/0227/17(IamNotMere)
-3.Bamlak Niggusie---------UGR/2910/17(Bamlakn1)
+2.Biruk Worede-------UGR/0227/17(IamNotMere/Toya)
+3.Bamlak Niggusie---------UGR/2910/17(Bamlakn1/Bam)
 4.Tsion Tesfaye------------UGR/3764/17(Tsion-Tesfaye)
 5.Daniel Getahun-----------UGR/1314/17(Daniget12)
               
