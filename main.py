@@ -62,4 +62,27 @@ def compare_section(sec1, sec2):
       #You would never guess
       #Something else would also happen
       pass
+#Comparing two Sections
+def compare_sections(students, section1, section2):
+    scores1 = [s["Score"] for s in students.values() if s["Section"] == section1]
+    scores2 = [s["Score"] for s in students.values() if s["Section"] == section2]
+
+    if not scores1 or not scores2:
+        print("One or both sections have no data.")
+        return None, None
+
+    avg1 = sum(scores1) / len(scores1)
+    avg2 = sum(scores2) / len(scores2)
+    print(f" Section {section1} - Average Score: {avg1:.2f}")
+    print(f"Section {section2} - Average Score: {avg2:.2f}")
+
+    if avg1 > avg2:
+        print(f" Section {section1} performed better.")
+    elif avg2 > avg1:
+        print(f"Section {section2} performed better.")
+    else:
+        print("Both sections performed equally.")
+
+    return avg1, avg2
+
    
