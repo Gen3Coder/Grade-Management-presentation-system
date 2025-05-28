@@ -39,13 +39,11 @@ while True: #THis is the While loop for the inputs
     sec = str(input("Please the student's section: ")) #Input code for section
     s= int(input("Enter student's score: ") )#Input code For score
     STG =  score_to_grade(s)#Calling and storing the score to grade converting function from above
-   sex= str(input("Sex?M/F"))#Input code for sex
     names[count] = {
       "Name":n,
       "Score":s,
       "Section":sec,
-      "Grade":STG,
-      "Sex" : sex
+      "Grade":STG
     }
     if count not in name:
        name[count] = []
@@ -89,29 +87,41 @@ a, b = cs.split(',')
 compare_sections(names,a.strip(),b.strip())
 #NOW ONTO PRESENTATIONNNN
 #draft
-def Section_Comparegraph():
-  #The basis of the graph
-  graphie.hideturtle()
-   graphie.speed(0)
-   graphie.color("#39FF14")
-  #Graph dimensions
-  x=-300
-   y=100
-   bwidth=80
-   gap=100
-   scale=avg1
+turtle.bgcolor("black")
+graphie=turtle.Turtle()
+#The basis of the graph
+graphie.hideturtle()
+graphie.speed(0)
+graphie.color("green")
+#Graph dimensions
+x=-300
+y=100
+barwidth=80
+gap=100
+scale=100
 #Title 
-   graphie.penup()
-   graphie.goto(x+bwidth/2,y+200)
-   graphie.write("Section Comparision",align="center",font=("Verdana",14,"bold"))
+graphie.penup()
+graphie.goto(x+barwidth/2,y+200)
+graphie.write("Section Comparision Graph",align="center",font=("Verdana",14,"bold"))
 #grade Gridlines(yaxis)
- for score in range(0, 101, 10):  
-        ypos = y + score * scale
-        graphie.goto(x - 30, ypos)
-        graphie.write(str(score), align="right", font=("Arial", 10, "normal"))
-        graphie.goto(x - 20, ypos)
-        graphie.pendown()
-        graphie.forward(300)  
-        graphie.penup()
+graphie.penup()
+graphie.goto(-250,80)
+graphie.pendown()
+graphie.right(90)
+graphie.forward(300)
+graphie.left(90)
+graphie.forward(300)
+graphie.penup()
+graphie.goto((-250+100),(80-300))
+graphie.pendown()
+graphie.fillcolor("green")
+graphie.begin_fill()
+graphie.left(90)
+graphie.forward(250)
+graphie.right(90)
+graphie.forward(45)
+graphie.right(90)
+graphie.forward(250)
+graphie.end_fill()
+turtle.done()
 
-   
