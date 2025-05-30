@@ -99,7 +99,25 @@ y=100
 barwidth=80
 gap=100
 scale=100
-#Title 
+#Titles
+graphie.penup()
+graphie.goto(200, 300)
+graphie.color("green")
+graphie.write("Class Comparison Graph", font=("Verdana", 16, "bold"))
+
+
+
+
+graphie.penup()
+graphie.goto(-300, -100)
+graphie.color("green")
+graphie.write("Class2 Comparison Graph", font=("Verdana", 16, "bold"))
+
+graphie.penup()
+graphie.goto(200, -100)
+graphie.color("green")
+graphie.write("General Grade Density", font=("Verdana", 16, "bold"))
+
 graphie.penup()
 graphie.goto(x+barwidth/2,y+200)
 graphie.write("Section Comparision Graph",align="center",font=("Verdana",14,"bold"))
