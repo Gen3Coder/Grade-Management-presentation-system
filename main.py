@@ -1,6 +1,5 @@
 #This will be the main code/ an initiator for the code we will write
-import turtle # Importing a Library
-graphie=turtle.Turtle() #Naming our Turtle
+
 names = {} #this is the list all the data gets stored in
 name = {} 
 Section = {}
@@ -68,12 +67,12 @@ def compare_sections(names, section1, section2):
     if not scores1 or not scores2:  #Error handling 
         print("One or both sections have no data.")
         return None, None
- # Calculates average for A SECTION
+ # Calcutation
     avg1 = sum(scores1) / len(scores1) # Calculates average for A SECTION
     avg2 = sum(scores2) / len(scores2)
     print(f" Section {section1} - Average Score: {avg1:.2f}")
     print(f"Section {section2} - Average Score: {avg2:.2f}")
-#Compares the Averages for the sections,Basic Arithmetic Logic new
+#comparision
     if avg1 > avg2:
         print(f" Section {section1} performed better.")
     elif avg2 > avg1:
@@ -83,63 +82,83 @@ def compare_sections(names, section1, section2):
 
     return avg1, avg2
 cs = input("Please input the section's you want to compare.(Eg:- 2,3): ")
-a, b = cs.split(',')
-compare_sections(names,a.strip(),b.strip())
-#NOW ONTO PRESENTATIONNNN
-#draft
+sec1, sec2 = [s.strip() for s in cs.split(',')]
+avg1, avg2 = compare_sections(names, sec1, sec2)
+
+#Now WE DRAWW!!
+import turtle 
+graphie=turtle.Turtle() 
 turtle.bgcolor("black")
 graphie=turtle.Turtle()
-#The basis of the graph
 graphie.hideturtle()
 graphie.speed(0)
 graphie.color("green")
-#Graph dimensions
-x=-300
-y=100
-barwidth=80
-gap=100
-scale=100
-#Titles
-graphie.penup()
-graphie.goto(200, 300)
-graphie.color("green")
-graphie.write("Class Comparison Graph", font=("Verdana", 16, "bold"))
 
 
+def draw_comparison_graph(avg1, avg2, sec1, sec2):
+ 
 
+ x = -310
+ y = 70
+ bar_width = 40
+ gap2 = 60
+ scale = 2
 
-graphie.penup()
-graphie.goto(-300, -100)
-graphie.color("green")
-graphie.write("Class2 Comparison Graph", font=("Verdana", 16, "bold"))
+    # Title
+ graphie.penup()
+ graphie.goto(-300, 300)
+ graphie.pendown()
+ graphie.write("Section Comparison Graph", font=("Verdana", 16, "bold"))
 
-graphie.penup()
-graphie.goto(200, -100)
-graphie.color("green")
-graphie.write("General Grade Density", font=("Verdana", 16, "bold"))
+    # axis
+ graphie.penup()
+ graphie.goto(-310,270)
+ graphie.pendown()
+ graphie.right(90)
+ graphie.forward(200)
+ graphie.left(90)
+ graphie.forward(200)
+ for i in range(0, 201, 20):  
+        graphie.penup()
+        graphie.goto(-340, 70 + i)
+        graphie.pendown()
+        graphie.write(f"{i/2}", font=("Verdana", 9, "normal"))
+        graphie.penup()
+ # Graph 1 BAR A
+ graphie.penup()
+ graphie.goto(x + 50, 70)
+ graphie.pendown()
+ graphie.fillcolor("green")
+ graphie.begin_fill()
+ graphie.setheading(90)
+ graphie.forward(avg1 * scale)
+ graphie.right(90)
+ graphie.forward(bar_width)
+ graphie.right(90)
+ graphie.forward(avg1 * scale)
+ graphie.end_fill()
+ graphie.penup()
+ graphie.goto(x + 50 + bar_width / 2, y - 20)
+ graphie.write(f"Sec {sec1}", align="center", font=("Verdana", 12))
 
-graphie.penup()
-graphie.goto(x+barwidth/2,y+200)
-graphie.write("Section Comparision Graph",align="center",font=("Verdana",14,"bold"))
-#grade Gridlines(yaxis)
-graphie.penup()
-graphie.goto(-250,80)
-graphie.pendown()
-graphie.right(90)
-graphie.forward(300)
-graphie.left(90)
-graphie.forward(300)
-graphie.penup()
-graphie.goto((-250+100),(80-300))
-graphie.pendown()
-graphie.fillcolor("green")
-graphie.begin_fill()
-graphie.left(90)
-graphie.forward(250)
-graphie.right(90)
-graphie.forward(45)
-graphie.right(90)
-graphie.forward(250)
-graphie.end_fill()
-turtle.done()
+#Graph 1 BAR B
+ graphie.penup()
+ graphie.goto(x + 40 + bar_width + gap2, 70)
+ graphie.pendown()
+ graphie.fillcolor("green")
+ graphie.begin_fill()
+ graphie.setheading(90)
+ graphie.forward(avg2 * scale)
+ graphie.right(90)
+ graphie.forward(bar_width)
+ graphie.right(90)
+ graphie.forward(avg2 * scale)
+ graphie.end_fill()
+ graphie.penup()
+ graphie.goto(x + 50 + bar_width + gap2 + bar_width / 2, y - 20)
+ graphie.write(f"Sec {sec2}", align="center", font=("Verdana", 12))
+ turtle.done()
+# Graph Drawing Condition :)
+if avg1 and avg2:
+    draw_comparison_graph(avg1, avg2, sec1, sec2)
 
