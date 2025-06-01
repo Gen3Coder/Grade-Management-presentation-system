@@ -84,6 +84,7 @@ def compare_sections(names, section1, section2):
 cs = input("Please input the section's you want to compare.(Eg:- 2,3): ")
 sec1, sec2 = [s.strip() for s in cs.split(',')]
 avg1, avg2 = compare_sections(names, sec1, sec2)
+#Data retriving for graphs 2,3 and 4
 def get_roll_grade_score(section):
     rolls = []
     grades = []
@@ -139,6 +140,8 @@ def draw_comparison_graph(avg1, avg2, sec1, sec2):
  graphie.forward(200)
  graphie.left(90)
  graphie.forward(200)
+  
+  #Score Grid
  for i in range(0, 201, 20):  
         graphie.penup()
         graphie.goto(-340, 70 + i)
@@ -178,17 +181,19 @@ def draw_comparison_graph(avg1, avg2, sec1, sec2):
  graphie.penup()
  graphie.goto(x + 50 + bar_width + gap2 + bar_width / 2, y - 20)
  graphie.write(f"Sec {sec2}", align="center", font=("Verdana", 12))
- turtle.done()
+
+
 # Graph Drawing Condition :)
 if avg1 and avg2:
     draw_comparison_graph(avg1, avg2, sec1, sec2)
-#mecheresha lay werdeh paste adrgew
+#Graph2
 def Classscore1(names, section=None):
     width = 15
     spacing = 20
     scale = 2
     x2 = 200
     y2 = 300
+  #Score Grid
     for i in range(0,201,20):
         graphie.penup()
         graphie.goto(165,(90+i))
@@ -237,12 +242,16 @@ def Classscore1(names, section=None):
         graphie.write(str(score),align="center",font=("Verdana", 8))
 Classscore1(names, section=sec1)
 
+
+# GRAPH 3
 def Classscore2(names, section=None):
     width = 15
     spacing = 10
     scale = 2
     x2 = -300
     y2 = -100
+  
+  #Score Grid
     for i in range(0,201,20):
         graphie.penup()
         graphie.goto(-335,(-310+i))
@@ -290,7 +299,7 @@ def Classscore2(names, section=None):
         graphie.goto(x + width , y2-200 + height + 5)
         graphie.write(str(score), align="center", font=("Verdana", 8))
 Classscore2(names, section=sec2)
-turtle.done()
+#Graph 4
 def draw_grade_frequency(freqdictionary):
     width4 = 20
     spacing = 15
@@ -329,5 +338,5 @@ def draw_grade_frequency(freqdictionary):
         graphie.write(Grade, align="center", font=("Verdana", 10))
         graphie.goto(x + width4 / 2, y4-250 + height4 + 5)
         graphie.write(str(count), align="center", font=("Verdana", 8))
-
 draw_grade_frequency(freqdictionary)
+turtle.done()
