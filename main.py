@@ -291,3 +291,43 @@ def Classscore2(names, section=None):
         graphie.write(str(score), align="center", font=("Verdana", 8))
 Classscore2(names, section=sec2)
 turtle.done()
+def draw_grade_frequency(freqdictionary):
+    width4 = 20
+    spacing = 15
+    scale = 10
+    x4 = 240
+    y4 = -100
+
+    graphie.penup()
+    graphie.goto(200, -100)
+    graphie.write("General Grade Frequency", font=("Verdana", 16, "bold"))
+
+    graphie.goto(x4, y4)
+    graphie.pendown()
+    graphie.forward(250)
+    graphie.left(90)
+    graphie.forward(300)
+    graphie.penup()
+
+    for i,(Grade, count) in enumerate(sorted(freqdictionary.items(), reverse=True)):
+        height4 = count * scale
+        x = x4 + i * (width4 + spacing)
+        graphie.penup()
+        graphie.goto(x, y4-250)
+        graphie.setheading(90)
+        graphie.pendown()
+        graphie.begin_fill()
+        graphie.forward(height4)
+        graphie.right(90)
+        graphie.forward(width4)
+        graphie.right(90)
+        graphie.forward(height4)
+        graphie.end_fill()
+
+        graphie.penup()
+        graphie.goto(x + width4 / 2, y4-250 - 20)
+        graphie.write(Grade, align="center", font=("Verdana", 10))
+        graphie.goto(x + width4 / 2, y4-250 + height4 + 5)
+        graphie.write(str(count), align="center", font=("Verdana", 8))
+
+draw_grade_frequency(freqdictionary)
