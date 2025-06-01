@@ -182,4 +182,112 @@ def draw_comparison_graph(avg1, avg2, sec1, sec2):
 # Graph Drawing Condition :)
 if avg1 and avg2:
     draw_comparison_graph(avg1, avg2, sec1, sec2)
+#mecheresha lay werdeh paste adrgew
+def Classscore1(names, section=None):
+    width = 15
+    spacing = 20
+    scale = 2
+    x2 = 200
+    y2 = 300
+    for i in range(0,201,20):
+        graphie.penup()
+        graphie.goto(165,(90+i))
+        graphie.pendown()
+        graphie.write(f"{i/2}",font=("Verdana",9,"normal"))
+        graphie.penup()
 
+    graphie.penup()
+    graphie.goto(x2, y2+20 )
+    graphie.write(f"Scores of Section {section}", font=("Verdana", 16, "bold"))
+    graphie.goto(x2, y2)
+    graphie.pendown()
+    graphie.forward(200)
+    graphie.left(90)
+    graphie.forward(200)
+    graphie.penup()
+    graphie.right(90)
+
+    
+    if section:
+        students = [(roll, val["Score"]) for roll, val in names.items() if val["Section"] == section]
+    else:
+        students = [(roll, val["Score"]) for roll, val in names.items()]
+
+    # Draw bars
+    for i, (roll, score) in enumerate(students):
+        height = score * scale
+        x = x2 + i * (width + spacing)
+        graphie.penup()
+        graphie.goto(x+spacing, y2-200)
+        graphie.setheading(90)
+        graphie.pendown()
+        graphie.begin_fill()
+        graphie.forward(height)
+        graphie.right(90)
+        graphie.forward(width)
+        graphie.right(90)
+        graphie.forward(height)
+        graphie.end_fill()
+
+        graphie.penup()
+        graphie.goto(x + width / 2, y2-200 - 20)
+        graphie.write(f"R{str(roll)}", align="center", font=("Verdana", 8))
+
+        graphie.goto(x + width, y2-200 + height + 5)
+        graphie.write(str(score),align="center",font=("Verdana", 8))
+Classscore1(names, section=sec1)
+
+def Classscore2(names, section=None):
+    width = 15
+    spacing = 10
+    scale = 2
+    x2 = -300
+    y2 = -100
+    for i in range(0,201,20):
+        graphie.penup()
+        graphie.goto(-335,(-310+i))
+        graphie.pendown()
+        graphie.write(f"{i/2}",font=("Verdana",9,"normal"))
+        graphie.penup()
+    
+    graphie.penup()
+    graphie.goto(x2, y2+20)
+    graphie.write(f"Scores of Section {section}", font=("Verdana", 16, "bold"))
+    graphie.goto(x2, y2)
+    graphie.pendown()
+    graphie.forward(200)
+    graphie.left(90)
+    graphie.forward(200)
+    graphie.penup()
+    graphie.right(90)
+
+    
+    if section:
+        students = [(roll, val["Score"]) for roll, val in names.items() if val["Section"] == section]
+    else:
+        students = [(roll, val["Score"]) for roll, val in names.items()]
+
+    # Draw bars
+    for i, (roll, score) in enumerate(students):
+        height = score * scale
+        x = x2 + i * (width + spacing)
+        graphie.penup()
+        graphie.goto(x+spacing, y2-200)
+        graphie.setheading(90)
+        graphie.pendown()
+        graphie.begin_fill()
+        graphie.forward(height)
+        graphie.right(90)
+        graphie.forward(width)
+        graphie.right(90)
+        graphie.forward(height)
+        graphie.end_fill()
+
+        graphie.penup()
+        graphie.goto(x + width / 2, y2-200 - 20)
+        graphie.write(f"R{str(roll)}", align="center", font=("Verdana", 8))
+
+        graphie.goto(x + width , y2-200 + height + 5)
+        graphie.write(str(score), align="center", font=("Verdana", 8))
+Classscore2(names, section=sec2)
+turtle.done()
