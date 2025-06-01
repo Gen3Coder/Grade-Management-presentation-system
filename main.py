@@ -84,7 +84,28 @@ def compare_sections(names, section1, section2):
 cs = input("Please input the section's you want to compare.(Eg:- 2,3): ")
 sec1, sec2 = [s.strip() for s in cs.split(',')]
 avg1, avg2 = compare_sections(names, sec1, sec2)
+def get_roll_grade_score(section):
+    rolls = []
+    grades = []
+    scores = []
+    for roll, val in names.items():
+        if val["Section"] == section:
+            rolls.append(roll)
+            grades.append(val["Grade"])
+            scores.append(val["Score"])
 
+def grade_frequency():
+    freq = {"A": 0, "A-": 0, "B+": 0, "B": 0, "B-": 0, "C+": 0, "C": 0, "C-": 0, "D": 0, "F": 0}
+    for student in names.values():
+        grade = student["Grade"]
+        if grade in freq:
+            freq[grade] += 1
+    return freq
+
+freqdictionary = grade_frequency()
+print("\nGrade Frequency:")
+for a, b in freqdictionary.items():
+    print(f"{a}: {b}")
 #Now WE DRAWW!!
 import turtle 
 graphie=turtle.Turtle() 
