@@ -5,7 +5,7 @@ name = {}
 Section = {}
 SAS  = {}
 Scores = {}
-count = -1
+count = 0
 a = ''
 b = ''
 #THIS IS THE GRADE LOGIC
